@@ -1,6 +1,10 @@
-import util from 'util';
-import { QueryArguments } from './interfaces';
+// import util from 'util';
 import Store from './store';
+
+export interface QueryArguments {
+  name: { value: string };
+  value: { value: string | number; kind: string; values: Array<{ kind: string; value: string }> };
+}
 
 export default (requestArray: [], store: Store) => {
   /**
@@ -13,6 +17,7 @@ export default (requestArray: [], store: Store) => {
         parent,
         fields: new Set(),
         arguments: {},
+        children: [],
       };
     }
 
@@ -25,6 +30,7 @@ export default (requestArray: [], store: Store) => {
               parent: resolver,
               fields: new Set(),
               arguments: {},
+              children: [],
             };
           }
 
@@ -44,7 +50,7 @@ export default (requestArray: [], store: Store) => {
             // TODO: account for additional argument types, currently only string as default and Intvalue
           });
         }
-
+        store.requestGroup[resolver].children.push(selection.name.value);
         loopAndLog(selection.selectionSet.selections, selection.name.value, resolver);
       } else {
         store.requestGroup[resolver].fields.add(selection.name.value);
@@ -97,5 +103,5 @@ export default (requestArray: [], store: Store) => {
     store.templates[a.name.value] = createResponseTemplate(a.selectionSet.selections);
   });
 
-  console.log('requestGroup: ', util.inspect(store.requestGroup, false, null));
+  // console.log('requestGroup: ', util.inspect(store.requestGroup, false, null));
 };

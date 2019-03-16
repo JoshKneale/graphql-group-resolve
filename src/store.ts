@@ -1,29 +1,7 @@
+/**
+ * A new instance of this class is instantiated on request. It is used to store temporary data needed for mapping results correctly.
+ */
 export default class Store {
-  /**
-   * Store for resolvers.
-   * Contains the service in which they are resolved, their return type and their primaryKey
-   */
-  public resolverMap: {
-    [key: string]: {
-      service: string;
-      returnType: string;
-      primaryKey: string;
-      result?: any;
-      mappedResults?: {
-        [key: string]: object[];
-      };
-    };
-  } = {
-    users: { service: 'user', returnType: 'array', primaryKey: 'id' },
-    user: { service: 'user', returnType: 'object', primaryKey: 'id' },
-    comment: { service: 'user', returnType: 'object', primaryKey: 'id' },
-    comments: { service: 'user', returnType: 'array', primaryKey: 'id' },
-    address: { service: 'user', returnType: 'object', primaryKey: 'userId' },
-    addresss: { service: 'user', returnType: 'array', primaryKey: 'userId' },
-    notes: { service: 'user', returnType: 'array', primaryKey: 'commentId' },
-  };
-  // TODO: fill this object these dynamically
-
   /**
    * Store for primary keys
    *
@@ -60,42 +38,19 @@ export default class Store {
       arguments: {
         [key: string]: any;
       };
+      children: string[];
     };
   } = {};
 
-  // TODO: add desc
-  // TODO: fill this dynamically
-  public resolverRelationships: {
-    [key: string]: {
-      [key: string]: string;
-    };
-  } = {
-    users: {
-      comments: 'userId',
-      comment: 'userId',
-    },
-    user: {
-      address: 'userId',
-      comments: 'userId',
-      comment: 'userId',
-    },
-    comments: {
-      notes: 'commentId',
-    },
-  };
-
   /**
-   * Empty all the store objects
+   * Store for resolvers results - to be mapped to the return object
    */
-  public clearStores = () => {
-    this.requestGroup = {};
-    this.keys = {};
-    this.resolversToSendRequestsTo = []; // this should be empty anyway
-    this.resolversToBuild = []; // this should be empty anyway
-    this.templates = {};
-    Object.keys(this.resolverMap).forEach(a => {
-      delete this.resolverMap[a].result; // remove result from resolverMap
-      delete this.resolverMap[a].mappedResults; // remove mappedResults from resolverMap
-    });
-  };
+  public results: {
+    [key: string]: {
+      result?: any;
+      mappedResults?: {
+        [key: string]: object[];
+      };
+    };
+  } = {};
 }
