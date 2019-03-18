@@ -2,6 +2,12 @@
 
 A graphQL resolver behaviour replacement.
 
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
++++ **THIS PROJECT IS NOT READY FOR PRODUCTION - STILL IN TESTING** +++
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 ## Installation
 
 ```bash
@@ -54,7 +60,7 @@ const endpoints: Service[] = [
 groupResolve(true, endpoints);
 ```
 
-## Authors and acknowledgment
+## Acknowledgments
 
 Props to the team at [Apollo](https://www.apollographql.com/). The additional features you bring to the graphQL tool set are invaluable, keep up the good work!
 
