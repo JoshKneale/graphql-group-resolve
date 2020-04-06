@@ -16,7 +16,7 @@ npm install graphql-group-resolve
 
 ## Description
 
-This module was designed to increase the performance of complex graphQL queries. It does this by grouping up calls to resolvers where possible, replacing the default functionality of resolving fields one by one.
+This module was designed to increase the performance of complex graphQL queries, especially when utilising the "schema stitching" method. It does this by grouping up calls to resolvers where possible, replacing the default functionality of resolving fields one by one.
 
 For more detail on the "why" this project was started, see here: (I haven't written it yet ok, I'll do it soon!)
 
