@@ -4,7 +4,7 @@ A graphQL resolver behaviour replacement.
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-+++ **THIS PROJECT IS NOT READY FOR PRODUCTION - STILL IN TESTING** +++
++++ **THIS PROJECT IS NOT READY FOR PRODUCTION - WIP** +++
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
