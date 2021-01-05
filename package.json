@@ -20,7 +20,7 @@
     "@types/node": "^11.9.4",
     "@types/pluralize": "0.0.29",
     "apollo-server": "^2.4.8",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "graphql-tag": "^2.10.1",
     "json-to-graphql-query": "^1.9.0",
     "pluralize": "^7.0.0"
